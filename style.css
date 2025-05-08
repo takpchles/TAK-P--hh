@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+#login-screen {
+    margin-top: 20%;
+}
+
+.center-text {
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+#menu {
+    margin-top: 30px;
+}
+
+.form-section {
+    margin: 20px;
+}
+
+textarea {
+    width: 80%;
+}
+
+#cevaplar-listesi {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
