@@ -1,0 +1,41 @@
+document.getElementById('locationButton').addEventListener('click', function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            const userLocation = {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+            };
+            localStorage.setItem('userLocation', JSON.stringify(userLocation));
+            alert("Konumunuz kaydedildi! Şimdi formu gönderebilirsiniz.");
+            document.getElementById('submitBtn').style.display = 'block';
+        }, function(error) {
+            alert("Konum izin verilmedi veya bir hata oluştu.");
+        });
+    } else {
+        alert("Tarayıcınızda konum özelliği bulunmamaktadır.");
+    }
+});
+
+document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const feedback = document.getElementById('feedback').value;
+    const locationData = localStorage.getItem('userLocation');
+    
+    if (locationData) {
+        const userData = {
+            username: username,
+            email: email,
+            feedback: feedback,
+            location: JSON.parse(locationData)
+        };
+        
+        // Admin paneline veri kaydedecek kısmı, şu an admin yerine localStorage'a kaydediyoruz
+        localStorage.setItem('userData', JSON.stringify(userData));
+        alert("Veriler başarıyla gönderildi.");
+    } else {
+        alert("Konum bilgisi alınmadı.");
+    }
+});
